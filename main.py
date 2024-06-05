@@ -1,71 +1,53 @@
-'''
-Менеджер задач
-Задача: Создай класс `Task`, который позволяет управлять задачами (делами). У задачи должны быть атрибуты: описание задачи, срок выполнения и статус (выполнено/не выполнено). Реализуй функцию для добавления задач, отметки выполненных задач и вывода списка текущих (не выполненных) задач.
-*Дополнительное задание:
-Ты разрабатываешь программное обеспечение для сети магазинов. Каждый магазин в этой сети имеет свои особенности, но также существуют общие характеристики, такие как адрес, название и ассортимент товаров. Ваша задача — создать класс `Store`, который можно будет использовать для создания различных магазинов.
-Шаги:
+from classes import store as st
+from classes import task as ts
 
-1. Создай класс `Store`:
--Атрибуты класса:
-- `name`: название магазина.
-- `address`: адрес магазина.
-- `items`: словарь, где ключ - название товара, а значение - его цена. Например, `{'apples': 0.5, 'bananas': 0.75}`.
-- Методы класса:
-- `__init__ - конструктор, который инициализирует название и адрес, а также пустой словарь для `items`.
--  метод для добавления товара в ассортимент.
-- метод для удаления товара из ассортимента.
-- метод для получения цены товара по его названию. Если товар отсутствует, возвращайте `None`.
-- метод для обновления цены товара.
+print('\nМенеджер задач:')
 
-2. Создай несколько объектов класса `Store`:
-Создай не менее трех различных магазинов с разными названиями, адресами и добавь в каждый из них несколько товаров.
+task_list = []
+_ = ts.Task("Проснуться", "2024-06-10 08:00:00", task_list)
+_ = ts.Task("Умыться", "2024-06-10 09:00:00", task_list)
+_ = ts.Task("Поесть", "2024-06-10 10:00:00", task_list)
 
-3. Протестировать методы:
-Выбери один из созданных магазинов и протестируй все его методы: добавь товар, обнови цену, убери товар и запрашивай цену.
-В поле для ответа загрузи ссылку на GitHub-репозиторий, содержащий код проекта с реализацией задания.
-'''
-from classes import store, task
+task_list[0].mark_completed()
+print('\nСписок актуальных задач:')
+for task in task_list:
+    if not task.completed:
+        print(task)
 
-# Создание объектов класса Store
-store1 = store.Store("Store 1", "123 Main St")
-store2 = store.Store("Store 2", "456 Elm St")
-store3 = store.Store("Store 3", "789 Maple St")
+print('\nСеть магазинов:')
+
+store1 = st.Store("Магазин 1", "123 Главная улица")
+store2 = st.Store("Магазин 2", "456 Улица Вязов")
+store3 = st.Store("Магазин 3", "789 Кленовая улица")
 
 # Добавление товаров в магазины
-store1.add_item("apples", 0.5)
-store1.add_item("bananas", 0.75)
-store2.add_item("oranges", 0.6)
-store2.add_item("pears", 0.8)
-store3.add_item("grapes", 2.0)
-store3.add_item("lemons", 1.0)
+store1.add_item("яблоки", 0.5)
+store1.add_item("бананы", 0.75)
+store2.add_item("апельсины", 0.6)
+store2.add_item("груши", 0.8)
+store3.add_item("виноград", 2.0)
+store3.add_item("лимоны", 1.0)
 
-# Тестирование методов для одного из магазинов
-print("Testing Store 1:")
 print(store1)
 
 # Добавление товара
-store1.add_item("cherries", 3.0)
-print("After adding cherries:")
+store1.add_item("вишни", 3.0)
+print("После добавления вишен:")
 print(store1)
 
-# Обновление цены товара
-store1.update_price("bananas", 0.85)
-print("After updating price of bananas:")
+# Обновление цены
+store1.update_price("бананы", 0.85)
+print("После обновления цены на бананы:")
 print(store1)
 
 # Удаление товара
-store1.remove_item("apples")
-print("After removing apples:")
+store1.remove_item("яблоки")
+print("После удаления яблок:")
 print(store1)
 
-# Запрос цены товара
-print(f"Price of bananas: {store1.get_price('bananas')}")
-print(f"Price of apples: {store1.get_price('apples')}")
+# Запрос цены
+print(f"Цена на бананы: {store1.get_price('бананы')}")
+print(f"Цена на яблоки: {store1.get_price('яблоки')}")
 
-task1 = task.Task("Buy apples", "2023-06-01")
-task2 = task.Task("Buy bananas", "2023-06-02")
-task3 = task.Task("Buy oranges", "2023-06-03")
 
-task_list = [task1, task2, task3]
 
-print(task.get_current_tasks(task_list))
