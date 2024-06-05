@@ -10,7 +10,10 @@ class Task:
         for task in self.task_list:
             if task['description'] == description:
                 task['completed'] = True
-                print(f'Задача "{task["description"]}" выполнена!')
+                print(f'Задача "{description}" выполнена!')
+                break
+        else:
+            print(f'Задача "{description}" не найдена!')
 
     def __str__(self):
         return '\nCписок задач:\n' + '\n'.join([f'   {task["description"]} - выполнить до {task["due_date"]}' for task in self.task_list if not task['completed']])
