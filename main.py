@@ -3,16 +3,15 @@ from classes import task as ts
 
 print('\nМенеджер задач:')
 
-task_list = []
-_ = ts.Task("Проснуться", "2024-06-10 08:00:00", task_list)
-_ = ts.Task("Умыться", "2024-06-10 09:00:00", task_list)
-_ = ts.Task("Поесть", "2024-06-10 10:00:00", task_list)
+tasks = ts.Task()
 
-task_list[0].mark_completed()
-print('\nСписок актуальных задач:')
-for task in task_list:
-    if not task.completed:
-        print(task)
+tasks.add_task("Проснуться", "2024-06-10 08:00:00")
+tasks.add_task("Умыться", "2024-06-10 09:00:00")
+tasks.add_task("Поесть", "2024-06-10 10:00:00")
+print(tasks)
+tasks.mark_completed("Проснуться")
+tasks.mark_completed("Поработать")
+print(tasks)
 
 print('\nСеть магазинов:')
 

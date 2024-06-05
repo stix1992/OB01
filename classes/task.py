@@ -1,18 +1,18 @@
 class Task:
-    def __init__(self, description, due_date, task_list):
-        self.description = description
-        self.due_date = due_date
-        self.completed = False
-        task_list.append(self)
-        print(f'Задача "{self.description}" добавлена!')
+    def __init__(self):
+        self.task_list = []
 
-    def mark_completed(self):
-        self.completed = True
-        print(f'Задача "{self.description}" выполнена!')
+    def add_task(self, description, due_date):
+        self.task_list.append({'description':description, 'due_date':due_date, 'completed':False})
+        print(f'Задача "{description}" добавлена!')
+
+    def mark_completed(self, description):
+        for task in self.task_list:
+            if task['description'] == description:
+                task['completed'] = True
+                print(f'Задача "{task["description"]}" выполнена!')
 
     def __str__(self):
-        return f"{self.description} - выполнить до {self.due_date}"
+        return '\nCписок задач:\n' + '\n'.join([f'   {task["description"]} - выполнить до {task["due_date"]}' for task in self.task_list if not task['completed']])
 
-def get_current_tasks(task_list):
-    return [task for task in task_list if not task.completed]
 
