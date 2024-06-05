@@ -24,13 +24,12 @@
 Выбери один из созданных магазинов и протестируй все его методы: добавь товар, обнови цену, убери товар и запрашивай цену.
 В поле для ответа загрузи ссылку на GitHub-репозиторий, содержащий код проекта с реализацией задания.
 '''
-import Task
-import Store
+from classes import store, task
 
 # Создание объектов класса Store
-store1 = Store("Store 1", "123 Main St")
-store2 = Store("Store 2", "456 Elm St")
-store3 = Store("Store 3", "789 Maple St")
+store1 = store.Store("Store 1", "123 Main St")
+store2 = store.Store("Store 2", "456 Elm St")
+store3 = store.Store("Store 3", "789 Maple St")
 
 # Добавление товаров в магазины
 store1.add_item("apples", 0.5)
@@ -63,10 +62,10 @@ print(store1)
 print(f"Price of bananas: {store1.get_price('bananas')}")
 print(f"Price of apples: {store1.get_price('apples')}")
 
-task1 = Task.Task("Buy apples", "2023-06-01")
-task2 = Task.Task("Buy bananas", "2023-06-02")
-task3 = Task.Task("Buy oranges", "2023-06-03")
+task1 = task.Task("Buy apples", "2023-06-01")
+task2 = task.Task("Buy bananas", "2023-06-02")
+task3 = task.Task("Buy oranges", "2023-06-03")
 
 task_list = [task1, task2, task3]
 
-print(get_current_tasks(task_list))
+print(task.get_current_tasks(task_list))
