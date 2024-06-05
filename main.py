@@ -24,44 +24,44 @@
 Выбери один из созданных магазинов и протестируй все его методы: добавь товар, обнови цену, убери товар и запрашивай цену.
 В поле для ответа загрузи ссылку на GitHub-репозиторий, содержащий код проекта с реализацией задания.
 '''
- import Task
- import Store
+import Task
+import Store
 
- # Создание объектов класса Store
- store1 = Store("Store 1", "123 Main St")
- store2 = Store("Store 2", "456 Elm St")
- store3 = Store("Store 3", "789 Maple St")
+# Создание объектов класса Store
+store1 = Store("Store 1", "123 Main St")
+store2 = Store("Store 2", "456 Elm St")
+store3 = Store("Store 3", "789 Maple St")
 
- # Добавление товаров в магазины
- store1.add_item("apples", 0.5)
- store1.add_item("bananas", 0.75)
- store2.add_item("oranges", 0.6)
- store2.add_item("pears", 0.8)
- store3.add_item("grapes", 2.0)
- store3.add_item("lemons", 1.0)
+# Добавление товаров в магазины
+store1.add_item("apples", 0.5)
+store1.add_item("bananas", 0.75)
+store2.add_item("oranges", 0.6)
+store2.add_item("pears", 0.8)
+store3.add_item("grapes", 2.0)
+store3.add_item("lemons", 1.0)
 
- # Тестирование методов для одного из магазинов
- print("Testing Store 1:")
- print(store1)
+# Тестирование методов для одного из магазинов
+print("Testing Store 1:")
+print(store1)
 
- # Добавление товара
- store1.add_item("cherries", 3.0)
- print("After adding cherries:")
- print(store1)
+# Добавление товара
+store1.add_item("cherries", 3.0)
+print("After adding cherries:")
+print(store1)
 
- # Обновление цены товара
- store1.update_price("bananas", 0.85)
- print("After updating price of bananas:")
- print(store1)
+# Обновление цены товара
+store1.update_price("bananas", 0.85)
+print("After updating price of bananas:")
+print(store1)
 
- # Удаление товара
- store1.remove_item("apples")
- print("After removing apples:")
- print(store1)
+# Удаление товара
+store1.remove_item("apples")
+print("After removing apples:")
+print(store1)
 
- # Запрос цены товара
- print(f"Price of bananas: {store1.get_price('bananas')}")
- print(f"Price of apples: {store1.get_price('apples')}")
+# Запрос цены товара
+print(f"Price of bananas: {store1.get_price('bananas')}")
+print(f"Price of apples: {store1.get_price('apples')}")
 
 task1 = Task.Task("Buy apples", "2023-06-01")
 task2 = Task.Task("Buy bananas", "2023-06-02")
